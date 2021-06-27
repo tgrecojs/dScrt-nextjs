@@ -1,0 +1,73 @@
+{
+  "name": "fli-calculator",
+  "version": "1.0.0",
+  "description": "TO-Do",
+  "main": "main.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "export": "next export",
+    "lint": "eslint ./source",
+    "lint:fix": "eslint --fix ./source",
+    "test": "NODE_ENV=test node -r @babel/register -r @babel/polyfill source/index.test.js",
+    "watch": "watch 'clear && npm run -s test | tap-nirvana && npm run -s lint' ./source"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgrecojs/Fli-Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tgrecojs/Fli-Calculator/issues"
+  },
+  "homepage": "https://github.com/tgrecojs/Fli-Calculator#readme",
+  "dependencies": {
+    "@mdx-js/loader": "^1.5.1",
+    "@mdx-js/react": "^1.6.18",
+    "@next/mdx": "^9.1.1",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/typography": "^0.4.1",
+    "autodux": "^5.0.3",
+    "chart.js": "^3.3.0",
+    "crocks": "^0.12.4",
+    "date-fns": "^2.21.3",
+    "isomorphic-unfetch": "^3.1.0",
+    "next": "^10.2.0",
+    "next-redux-wrapper": "^6.0.2",
+    "re-reselect": "^4.0.0",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^3.0.3",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-dsm": "^3.0.3",
+    "redux-saga": "^1.1.3",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/register": "^7.13.8",
+    "@emotion/babel-plugin": "^11.2.0",
+    "autoprefixer": "^10.0.4",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.1.10",
+    "prettier": "2.3.0",
+    "prop-types": "^15.7.2",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "riteway": "^6.2.1",
+    "tailwindcss": "^2.1.1",
+    "tap-nirvana": "^1.1.0",
+    "watch": "^1.0.2"
+  }
+}

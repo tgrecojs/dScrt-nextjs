@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Eth2x Fli Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+    <style type="text/css">
+        h2 {
+          margin: 2em 0em;
+        }
+        .ui.container {
+          padding-top: 4em;
+          padding-bottom: 4em;
+        }
+        </style>
+
+<script src="main.js"></script>
+
+
+      </head>
+      <body>
+      
+      <div class="ui container">
+      
+
+        <h2 class="ui header">FLI Price Calculator</h2>
+    
+        <div class="ui attached icon info message">
+          <i class="help circle icon"></i>
+          <div class="content">
+            Calculate your returns on FLI investments
+          </div>
+          <button class="ui toggle button" onclick="debug()">Debug</button>
+        </div>
+        
+        <br>
+
+          <div class="ui right labeled input">
+            <input type="text" id="ethPrice" placeholder="Enter Eth Price..">
+            <div class="ui basic label">
+              Eth Price
+            </div>
+          </div>
+
+          <div class="ui right labeled input">
+            <input type="text" id="months"placeholder="In Months..">
+            <div class="ui basic label">
+              Holding period
+            </div>
+          </div>
+
+          <div class="ui right labeled input">
+            <input type="text" id = "percentChange" placeholder="As percent..">
+            <div class="ui basic label">
+              % change in Eth Price
+            </div>
+          </div>
+<br>
+<br>
+
+          
+          <div class="ui right labeled input">
+            <input type="text" id = "initialInvestment" placeholder="in dollars..">
+            <div class="ui basic label">
+              initial Investement
+            </div>
+          </div>
+
+          <div class="ui right labeled input">
+            <input type="text" id = "currentLeverageRatio" placeholder="Current Ratio">
+            <div class="ui basic label">
+              Current leverage ratio
+            </div>
+          </div>
+
+          <br>
+          <br>
+
+
+          <div class="ui right labeled input" style="display: none;" id="debugRecenterSpeed">
+            <input type="text" id = "recenteringSpeed" placeholder="Recentering Speed">
+            <div class="ui basic label">
+              Recentering Speed
+            </div>
+          </div>
+
+          <br>
+          <br>
+      
+          <button class="ui button" onclick="myFunction()">
+            Calculate
+          </button>
+
+
+
+
+
+        </div>
+
+        <div class="ui center aligned container">
+            <div class="ui divider"></div>
+
+          <div class="ui statistic">
+            <div class="value" id = ethEarned>
+              0
+            </div>
+            <div class="label">
+              Total money if invested in Eth
+            </div>
+          </div>
+
+
+
+
+          <div class="ui statistic">
+            <div class="value" id = fliEarned>
+              0
+            </div>
+            <div class="label">
+              total money if invested in fli
+            </div>
+          </div>
+
+
+
+          <div class="ui statistic">
+            <div class="value" id = ethFinalPrice>
+              0
+            </div>
+            <div class="label">
+              Eth Final Price
+            </div>
+          </div>`
+
+
+
+
+          <div class="ui statistic">
+            <div class="value" id = fliFinalPrice>
+              0
+            </div>
+            <div class="label">
+              Fli Final Price
+            </div>
+          </div>
+
+          
+
+          <div class="ui statistic" style = 'display:none' id="debugNewLeverageRatio">
+            <div class="value" id = newLeverageRatio>
+              0
+            </div>
+            <div class="label">
+              New Leverage Ratio
+            </div>
+          </div>
+
+          
+          <div class="ui statistic" style = 'display:none' id="debugCurrentLeverageRatio">
+            <div class="value" id = debugCurrentLeverageRatioValue>
+              0
+            </div>
+            <div class="label">
+              Debug Current Leverage Ratio
+            </div>
+          </div>
+
+          <br>
+          <div class="ui statistic" style = 'display:none' id="debugCurrentRecenterSpeed">
+            <div class="value" id = currentRecenterSpeed>
+              0
+            </div>
+            <div class="label">
+              Debug Current Recenter Speed
+            </div>
+          </div>
+
+
+</div>
+
+      </body>
+      
+      </html>
