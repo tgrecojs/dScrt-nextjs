@@ -16,8 +16,8 @@ const RoiDetails = ({
   console.log({ volDecay, roiWithDecay })
   return (
     <>
-      <div className="flex flex-col items-start w-full m-2">
-        <h2 className="flex m-2 p-4 text-2xl">FLI Token ROI Calculator</h2>
+      <div className="flex flex-col items-center w-full m-2">
+        <h2 className="flex p-2 text-2xl">Current Price Data</h2>
         {Object.entries(tokenData)
           .map((x) => {
             const [val, ...rest] = x
@@ -65,7 +65,7 @@ const RoiDetails = ({
               </p>
             </div>
             <div className="m-2 p-4 flex flex-col">
-              <h3 className="text-xl">Underlying Token</h3>
+              <h3 className="text-xl">Underlying Token (Ether)</h3>
               <p>
                 Investment Value at End: $
                 {roiResult.tokenRoi + calculatorState.initialInvestment}
