@@ -13,7 +13,6 @@ const RoiDetails = ({
   const calculatorState = useSelector((s) => s.calculatorState)
 
   const { volDecay, roiWithDecay } = volDecayStats
-  console.log({ volDecay, roiWithDecay })
   return (
     <>
       <div className="flex flex-col items-center w-full m-2">
@@ -43,10 +42,7 @@ const RoiDetails = ({
             justify-between bg-purple-200 border-8 border-black
          rounded-md m-1"
           >
-            <h3 className="m-2 p-4 text-xl text-center underline">
-              ROI of FLI vs. Underlying Token: $
-              {roiResult.fliProfitAmount.toFixed(2)}
-            </h3>
+            <h3 className="m-2 text-xl text-center underline">ROI Results</h3>
 
             <div className="m-2 p-4 flex flex-col">
               <h3 className="text-xl">FLI Token</h3>

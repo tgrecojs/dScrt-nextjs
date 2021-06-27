@@ -810,7 +810,6 @@ const withVolStd = (data = []) =>
         volSquared: squareNumber(val.deviationAmount) + acc.volSquared,
         length: val.length
       }
-      console.log({ newAcc })
       return newAcc
     }
   }, []) //?
@@ -865,14 +864,12 @@ const buildVolDecayStats = (x) =>
       ...x,
       annualizedVol: Math.sqrt(365) * (x.volDecayStd * 10)
     }),
-    trace('after running getStd'),
     (x) => ({
       ...x,
       calculateDecay: (percent, lr) =>
         calculateReturnWithVolDecay(x.volDecayStd)(percent, lr)
     }),
     (x) => ({ ...x, volDecayStd: getStd(x) }),
-    trace('after running withVolStd'),
     withVolStd,
     (data) => data.map((x) => ({ ...x, length: data.length }))
   )(buildVolDecayArray(x))

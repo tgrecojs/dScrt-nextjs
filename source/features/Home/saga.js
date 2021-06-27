@@ -33,7 +33,6 @@ function* fetchTokenDataSaga() {
       fetchCoingeckoData,
       makeRangeUrl(map.fly)
     )
-    console.log({ underlyingTokenRespose, fliTokenResponse })
     yield put(
       reportSuccess({
         underlyingToken: aggregatePriceData(underlyingTokenRespose.prices),

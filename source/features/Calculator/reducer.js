@@ -22,11 +22,6 @@ const calculateCustomDecay = ({
   leverageRatio,
   holdingDecay
 } = {}) => {
-  console.log('calculatingCustomDecay::', {
-    percentChange,
-    leverageRatio,
-    holdingDecay
-  })
   return (
     Math.pow(1 + toDecimal(percentChange), leverageRatio) * holdingDecay - 1
   )

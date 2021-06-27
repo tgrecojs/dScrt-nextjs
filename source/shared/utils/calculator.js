@@ -63,10 +63,4 @@ const createFinalTokenPrice = ({
 })
 
 // const calculateFliROI = compose(createInputParams, createFinalTokenPrice, createFliReturn)(testObject) //?
-export default compose(
-  trace('final valeu'),
-  createFinalTokenPrice,
-  trace('after createFliReturn'),
-  createFliReturn,
-  trace('starting calculation')
-)
+export default compose(createFinalTokenPrice, createFliReturn)

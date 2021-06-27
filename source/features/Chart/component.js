@@ -171,7 +171,6 @@ const roiOptions = createChartOptions({
 
 const footer = (tooltipItems) => {
   let start = 100
-  console.log({ tooltipItems })
 
   tooltipItems.forEach(function (tooltipItem) {
     start += tooltipItem.parsed.y
