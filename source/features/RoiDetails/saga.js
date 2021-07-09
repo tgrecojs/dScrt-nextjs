@@ -3,17 +3,28 @@ import { fetchData, reportSuccess, reportError } from './reducer'
 import { setTokenData } from '../Calculator/reducer'
 import { fetchCoingeckoData, currentPrice } from '../../shared/APIs'
 
-const fliMap = {
-  eth: { underlying: 'ethereum', token: 'eth-2x-flexible-leverage-index' }
+const map = {
+  eth: {
+    underlying: 'ethereum',
+    fli: 'eth-2x-flexible-leverage-index'
+  },
+  btc: {
+    underlying: 'bitcoin',
+    fli: 'btc-2x-flexible-leverage-index'
+  }
 }
-const { eth } = fliMap
+
 function* fetchTokenDataSaga(action) {
   try {
     // eslint-disable-next-line no-unused-vars
     const { payload } = action
+    console.log(
+      'inside fethcTokenDataSaga::: getting currentPrice data@@action',
+      { action, payload, lookup: map[payload] }
+    )
     const response = yield call(
       fetchCoingeckoData,
-      currentPrice(`${eth.underlying},${eth.token}`)
+      currentPrice(`${map[payload].underlying},${map[payload].fli}`)
     )
     yield put(reportSuccess(response))
   } catch (error) {

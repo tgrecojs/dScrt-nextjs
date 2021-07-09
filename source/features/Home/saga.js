@@ -11,8 +11,14 @@ import { makeRangeUrl, aggregateReducer } from '../../shared/utils'
 import { buildVolDecayStats } from '../../shared/utils/volatility-decay'
 import { setVolDecayStats } from '../Calculator/reducer'
 const map = {
-  eth: 'ethereum',
-  fly: 'eth-2x-flexible-leverage-index'
+  eth: {
+    underlying: 'ethereum',
+    fli: 'eth-2x-flexible-leverage-index'
+  },
+  btc: {
+    underlying: 'bitcoin',
+    fli: 'btc-2x-flexible-leverage-index'
+  }
 }
 
 const applyAggregationFn =
@@ -22,17 +28,18 @@ const applyAggregationFn =
 
 const aggregatePriceData = applyAggregationFn(aggregateReducer, [])
 
-function* fetchTokenDataSaga() {
+function* fetchTokenDataSaga(action) {
   try {
     // TODO: remove hardcoded map.eth value for other FLI products
     const underlyingTokenRespose = yield call(
       fetchCoingeckoData,
-      makeRangeUrl(map.eth)
+      makeRangeUrl(map[action.payload].underlying)
     )
     const fliTokenResponse = yield call(
       fetchCoingeckoData,
-      makeRangeUrl(map.fly)
+      makeRangeUrl(map.eth.fli)
     )
+    console.log({ underlyingTokenRespose, fliTokenResponse })
     yield put(
       reportSuccess({
         underlyingToken: aggregatePriceData(underlyingTokenRespose.prices),

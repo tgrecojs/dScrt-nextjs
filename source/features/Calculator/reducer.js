@@ -70,6 +70,7 @@ export const {
       leverageRatio: Number(payload)
     }),
     setRoiState: (state, payload) => {
+      console.log({ state })
       const holdingDecay = state.volDecayStats.calculateHoldingVol({
         holdingPeriod: Number(state.holdingPeriod),
         annualizedVol: state.volDecayStats.annualizedVol,
@@ -87,7 +88,7 @@ export const {
         roiResult: roiFunction({
           ...state,
           fliStrategy: state.fliTokenStrategy,
-          tokenPrice: state.tokenData.ethereum.usd,
+          tokenPrice: state.tokenData[0].usd,
           percentChange: Number(state.percentChange)
         }),
         holdingDecay: state.volDecayStats.calculateHoldingVol({

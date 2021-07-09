@@ -795,7 +795,6 @@ const aggVolDecay = (data = []) =>
 
 const withVolStd = (data = []) =>
   data.reduce((acc, val) => {
-    console.log({ acc, val })
     if (acc.length <= 0) {
       const obj = {
         combinedDailyVolatility: val.dailyPriceVolatility,

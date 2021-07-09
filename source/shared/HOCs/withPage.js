@@ -9,7 +9,6 @@ const withPage = (Component) =>
     connect(null, {
       onFetchCurrentPrice: fetchData
     }),
-    withCurrentPrice,
     withLayout
   )(Component)
 
