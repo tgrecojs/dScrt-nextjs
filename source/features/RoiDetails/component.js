@@ -2,6 +2,7 @@ import { number, string } from 'prop-types'
 import Calculator from '../Calculator/component'
 import { useSelector } from 'react-redux'
 const fixedNum = (x) => x.toFixed(2)
+const capitliaze = (str) => ''.concat(str[0].toUpperCase(), str.slice(1))
 
 const RoiDetails = ({
   fliStrategy = 'eth',
@@ -20,12 +21,13 @@ const RoiDetails = ({
         {Object.entries(tokenData)
           .map((x) => {
             const [val, ...rest] = x
+            console.log({ val, rest })
             return { key: val, price: rest[0].usd }
           })
           .map((x, i) => (
             <div key={x.key}>
               <h3 className="p-2 text-xl">
-                {i !== 0 ? 'ETH2x-FLI' : 'Ethereum'}{' '}
+                {capitliaze(x.key)}
                 <span className="text-blue">${x.price}</span>
               </h3>
             </div>

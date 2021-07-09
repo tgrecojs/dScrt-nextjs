@@ -88,7 +88,7 @@ export const {
         roiResult: roiFunction({
           ...state,
           fliStrategy: state.fliTokenStrategy,
-          tokenPrice: state.tokenData[0].usd,
+          tokenPrice: Object.values(state.tokenData)[0].usd,
           percentChange: Number(state.percentChange)
         }),
         holdingDecay: state.volDecayStats.calculateHoldingVol({
