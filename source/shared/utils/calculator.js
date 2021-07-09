@@ -31,7 +31,7 @@ calculateTokenRoi({
   initialInvestment: 1000,
   percentChange: 10,
   withRatio: 10 * 1.7
-}) //?
+})
 
 const createFliReturn = (x = {}) => ({
   ...x,
