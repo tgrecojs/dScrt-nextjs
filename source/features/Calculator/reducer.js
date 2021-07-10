@@ -1,7 +1,5 @@
 import autodux from 'autodux'
-import { string } from 'prop-types'
 import roiFunction from '../../shared/utils/calculator'
-import { fliRoiWithDecay } from '../../shared/utils/volatility-decay'
 
 export const defaultState = {
   fliTokenStrategy: 'ETH',
@@ -69,20 +67,8 @@ export const {
       ...s,
       leverageRatio: Number(payload)
     }),
-    setRoiState: (state, payload) => {
-      console.log({ state })
-      const holdingDecay = state.volDecayStats.calculateHoldingVol({
-        holdingPeriod: Number(state.holdingPeriod),
-        annualizedVol: state.volDecayStats.annualizedVol,
-        ratio: state.leverageRatio
-      })
-      const fliReturnWithDecay = fliRoiWithDecay(holdingDecay)({
-        leverageRatio: state.leverageRatio,
-        percentChange: toDecimal(state.percentChange)
-      })
-      console.log({
-        fliReturnWithDecay
-      })
+    // TODO: Abstract logic below for calculating vol decay
+    setRoiState: (state) => {
       return {
         ...state,
         roiResult: roiFunction({

@@ -1,6 +1,5 @@
 import { call, takeLatest, put } from 'redux-saga/effects'
 import {
-  fetchHistoricalData,
   reportSuccess,
   reportError,
   setHistoricalData,

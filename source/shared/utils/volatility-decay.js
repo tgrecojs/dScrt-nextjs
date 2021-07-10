@@ -772,10 +772,6 @@ const withAverage = (avg) => (data) =>
     if (val.previousPrice === 0) return acc
     return acc.concat(withVolatilityChange(avg)(val))
   }, [])
-const trace = (label) => (val) => {
-  console.log(`${label}::`, val)
-  return val
-}
 
 const aggVolDecay = (data = []) =>
   data.reduce((acc, val, index) => {
@@ -828,11 +824,9 @@ const evaluateInvestmentDecay =
   (decay) =>
     decay * investment + investment
 const calculateReturnWithVolDecay = (volDecayStd) => (percent, lr) => {
-  console.log({ volDecayStd, percent, lr })
   const res = Math.pow(1 + toDecimal(percent), lr)
   const powTimesVol = res * volDecayStd - 1
   const times100 = powTimesVol * 100
-  console.log({ res, powTimesVol, times100 })
   return times100
 }
 const getStd = ({ volSquared, length }) =>

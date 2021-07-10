@@ -1,5 +1,4 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import { reducer as calculatorInputReducer } from '../features/Calculator/reducer'
 import { reducer as tokenPriceReducer } from '../features/RoiDetails/reducer'

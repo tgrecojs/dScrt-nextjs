@@ -22,7 +22,7 @@
   },
   "rules": {
     "prettier/prettier": [
-      "warn",
+      2,
       {
         "singleQuote": true,
         "semi": false,

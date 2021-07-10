@@ -1,11 +1,11 @@
+/* eslint-disable react/prop-types,react-hooks/rules-of-hooks,react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
 
+// TODO: Add propType checks for HOCs
 const WithCurrentPrice =
   (ComposedComponent) =>
   ({ underlyingToken = 'eth', ...props }) => {
-    // eslint-disable-next-line react/prop-types,react-hooks/rules-of-hooks
     useEffect(() => props.onFetchCurrentPrice(underlyingToken), [])
-    console.log('calling fetchCurrent')
     return <ComposedComponent {...props} />
   }
 export default WithCurrentPrice

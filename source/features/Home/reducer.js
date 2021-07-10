@@ -2,8 +2,7 @@ import dsm from 'redux-dsm'
 import autodux from 'autodux'
 import {
   buildVolDecayArray,
-  calculateReturnWithVolDecay,
-  buildVolDecayStats
+  calculateReturnWithVolDecay
 } from '../../shared/utils/volatility-decay'
 
 export const {
@@ -60,7 +59,6 @@ const states = [
   ]
 ]
 
-const getStateByPropName = (propName) => (state) => state[propName]
 const getVolatilityDecayState = ({ volatilityDecayState } = {}) =>
   volatilityDecayState
 const getHistoricalDataState = ({ historicalDataState } = {}) =>

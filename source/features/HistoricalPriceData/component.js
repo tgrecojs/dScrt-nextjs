@@ -24,7 +24,6 @@ const RenderHistoricalData = ({
           ({
             timestamp,
             currentPrice,
-            previousPrice,
             dailyPriceVolatility,
             deviationAmount,
             priceChangeInDollars,

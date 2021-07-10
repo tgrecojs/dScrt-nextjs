@@ -6,6 +6,7 @@ const compose =
 
 const divideBy100 = divide(100)
 
+/* eslint-disable no-unused-vars */
 const trace = (label) => (val) => {
   console.log(`${label}::`, val)
   return val

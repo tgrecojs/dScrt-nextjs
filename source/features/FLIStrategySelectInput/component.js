@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { func, string } from 'prop-types'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setFliTokenStrategy } from '../Calculator/reducer'
 const FliStrategySelectBox = ({ underlyingToken = 'eth', onChange }) => {
   useEffect(() => {
@@ -8,17 +8,15 @@ const FliStrategySelectBox = ({ underlyingToken = 'eth', onChange }) => {
     /* eslint-disable react-hooks/exhaustive-deps */
   }, [underlyingToken])
   const dispatch = useDispatch()
-  console.log({ underlyingToken })
   return (
     <>
-      <label>Change Underlying Token</label>
+      <label htmlFor="underlyingToken">Change Underlying Token</label>
       <select
+        id="underlyingToken"
         defaultValue={underlyingToken}
         onChange={(e) => onChange(e.target.value)}
       >
-        <option value="eth" selected={underlyingToken === 'eth'}>
-          ETH
-        </option>
+        <option value="eth">ETH</option>
         <option value="btc">BTC</option>
       </select>
     </>

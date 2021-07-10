@@ -1,7 +1,6 @@
 import { string, array, number } from 'prop-types'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import RoiDetails from '../RoiDetails/component'
 import { compose } from 'redux'
 import {
   setLeverageRatio,

@@ -17,10 +17,9 @@ const RoiDetails = () => {
         {Object.entries(tokenData)
           .map((x) => {
             const [val, ...rest] = x
-            console.log({ val, rest })
             return { key: val, price: rest[0].usd }
           })
-          .map((x, i) => (
+          .map((x) => (
             <div key={x.key}>
               <h3 className="p-2 text-xl">
                 {capitliaze(x.key)}
