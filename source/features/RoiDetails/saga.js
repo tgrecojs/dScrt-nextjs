@@ -18,10 +18,7 @@ function* fetchTokenDataSaga(action) {
   try {
     // eslint-disable-next-line no-unused-vars
     const { payload } = action
-    console.log(
-      'inside fethcTokenDataSaga::: getting currentPrice data@@action',
-      { action, payload, lookup: map[payload] }
-    )
+    // TODO: abstract logic below (i.e .toLowerCase())
     const response = yield call(
       fetchCoingeckoData,
       currentPrice(

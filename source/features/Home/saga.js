@@ -37,9 +37,8 @@ function* fetchTokenDataSaga(action) {
     )
     const fliTokenResponse = yield call(
       fetchCoingeckoData,
-      makeRangeUrl(map.eth.fli)
+      makeRangeUrl(map[action.payload].fli)
     )
-    console.log({ underlyingTokenRespose, fliTokenResponse })
     yield put(
       reportSuccess({
         underlyingToken: aggregatePriceData(underlyingTokenRespose.prices),
