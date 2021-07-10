@@ -64,12 +64,13 @@ const RoiDetails = ({
             </div>
             <div className="m-2 p-4 flex flex-col">
               <h3 className="text-xl">
-                Underlying Token ({Object.entries(calculatorState.tokenData)[0]}
-                )
+                {calculatorState.fliTokenStrategy.toUpperCase()}
               </h3>
               <p>
                 Investment Value at End: $
-                {roiResult.tokenRoi + calculatorState.initialInvestment}
+                {fixedNum(
+                  roiResult.tokenRoi + calculatorState.initialInvestment
+                )}
                 <br />
               </p>
               <p> ROI Percent: {calculatorState.percentChange}%</p>
