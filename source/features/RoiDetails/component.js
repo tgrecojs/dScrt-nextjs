@@ -63,7 +63,10 @@ const RoiDetails = ({
               </p>
             </div>
             <div className="m-2 p-4 flex flex-col">
-              <h3 className="text-xl">Underlying Token (Ether)</h3>
+              <h3 className="text-xl">
+                Underlying Token ({Object.entries(calculatorState.tokenData)[0]}
+                )
+              </h3>
               <p>
                 Investment Value at End: $
                 {roiResult.tokenRoi + calculatorState.initialInvestment}
