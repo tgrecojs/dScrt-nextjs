@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
+import { func, string } from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { setFliTokenStrategy } from '../Calculator/reducer'
 const FliStrategySelectBox = ({ underlyingToken = 'eth', onChange }) => {
   useEffect(() => {
     dispatch(setFliTokenStrategy(underlyingToken))
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [underlyingToken])
   const dispatch = useDispatch()
   console.log({ underlyingToken })
@@ -22,5 +24,8 @@ const FliStrategySelectBox = ({ underlyingToken = 'eth', onChange }) => {
     </>
   )
 }
-
+FliStrategySelectBox.propTypes = {
+  onChange: func,
+  underlyingToken: string
+}
 export default FliStrategySelectBox
