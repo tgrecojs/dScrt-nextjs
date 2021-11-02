@@ -1,7 +1,4 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx$/
-})
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'md', 'mdx']
-})
+// changes dist directory from .next to build 
+module.exports = {
+  distDir: 'build',
+}
