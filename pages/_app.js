@@ -10,7 +10,7 @@ import { CacheProvider } from '@emotion/react'
 import theme from '../source/shared/MUI/theme'
 
 import createEmotionCache from '../source/shared/MUI/createEmotionCache'
-const styleCache = createEmotionCache();
+const styleCache = createEmotionCache()
 
 function MyApp({
   Component,
@@ -21,10 +21,7 @@ function MyApp({
   return (
     <CacheProvider value={emotionCache}>
       <Provider store={reduxStore}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
           <Component {...pageProps} />
-        </ThemeProvider>
       </Provider>
     </CacheProvider>
   )

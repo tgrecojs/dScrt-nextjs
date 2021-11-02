@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper
   },
   listItemRootOverride: {
-    flex: 'none',
-    paddingRight: 4
+    flex: 'none'
   }
 }))
 

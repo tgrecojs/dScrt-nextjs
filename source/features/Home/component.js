@@ -1,13 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import { fetchData } from '../RoiDetails/reducer'
+import { deepOrange, deepPurple, lightBlue, orange } from '@mui/material/colors'
+
 import {
   BottomNavigation,
   Card,
+  Container,
   Grid,
   GridModal,
   Typography,
-  CardContent
+  CardContent,
+  useMediaQuery
 } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
@@ -21,32 +25,22 @@ import FliStrategySelectBox from '../FLIStrategySelectInput/component'
 import HelpModal from '../../shared/MUI/modal'
 import useTVL from '../../shared/hooks/useTVL'
 import useOracle from '../../shared/hooks/useOracle'
+import AppBar from '../../shared/MUI/appBar'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    marginTop: 20
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary
-  },
-  scrtColor: {
-    color: theme.palette.primary
-  },
-  subtitle: {
-    color: theme.palette.primary
-  },
-  card: {
-    minWidth: 275
-  },
-  titleText: {
-    fontSize: 14
-  }
-}))
+const StyledGridCell = ({ children, ...props }) => (
+  <Grid
+    sx={{
+      boxShadow: 2,
+      m: 3,
+      p: 1
+    }}
+    {...props}
+  >
+    {children}
+  </Grid>
+)
+
 const Volatility = () => {
-  const classes = useStyles()
   const [tvl] = useTVL()
   const [scrtPrice] = useOracle()
   const dispatch = useDispatch()
@@ -62,40 +56,49 @@ const Volatility = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const [darkState, setDarkState] = useState(
+    useMediaQuery('(prefers-color-scheme: dark)')
+  )
+  const mainPrimaryColor = darkState ? orange[500] : lightBlue[300]
+  const mainSecondaryColor = darkState ? deepOrange[900] : deepPurple[500]
+
+  const handleThemeChange = () => {
+    setDarkState(!darkState)
+  }
+
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid item xs={12} style={{ textAlign: 'center' }}>
+        <StyledGridCell item xs={12}>
           <Typography variant="h2">
-            {'Convert'} {<span color="red">SCRT</span>} to {<span>dSCRT</span>}
+            z{'Convert'} {<span color="red">SCRT</span>} to {<span>dSCRT</span>}
           </Typography>
 
           <Typography variant="subtitle1">
             Liquid staking with dSCRT! Stake your SCRT, get dSCRT, and
             accumulate automatically!
           </Typography>
-          <Typography style={{ paddingTop: 10 }} variant={'body2'}>
+          <Typography variant={'body2'}>
             Cashmaney takes absolutely no responsibility for any funds gained,
             lost, disappeared, or bamboozeled as a result of usage of this
             software. USE AT YOUR OWN RISK.
           </Typography>
-        </Grid>
-        <Grid item sm={12} xs={6} style={{ textAlign: 'right' }}>
+        </StyledGridCell>
+        <StyledGridCell item sm={12} xs={6}>
           <HelpModal />
-        </Grid>
-        <Grid item sm={12} xs={6} style={{ textAlign: 'left' }}></Grid>
-        {/*<Grid item xs={6}>*/}
+        </StyledGridCell>
+        <StyledGridCell item sm={12} xs={6}></StyledGridCell>
+        {/*<StyledGridCell item xs={6}>*/}
         {/*    <TextField id="standard-basic" label="SCRT" value={depositAmount} onChange={(event) => {*/}
         {/*        setDepositAmount(event.target.value)*/}
         {/*    }} />*/}
         {/*</Grid>*/}
-        {/*<Grid item xs={6}>*/}
+        {/*<StyledGridCell item xs={6}>*/}
         {/*<TextField id="standard-basic" label="dSCRT" value={depositAmount} onChange={(event) => {*/}
         {/*        setDepositAmount(event.target.value)*/}
         {/*    }} />*/}
         {/*</Grid>*/}
 
-        <Grid item sm={8} xs={12}>
+        <StyledGridCell item sm={8} xs={12}>
           <Card>
             <CardContent>
               <Typography variant={'h4'}>Want to earn $CASH?</Typography>
@@ -117,8 +120,8 @@ const Volatility = () => {
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item sm={6} xs={12}>
+        </StyledGridCell>
+        <StyledGridCell item sm={6} xs={12}>
           <Card>
             <CardContent>
               <Typography variant={'body2'}>
@@ -148,15 +151,11 @@ const Volatility = () => {
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item sm={6} xs={12}>
+        </StyledGridCell>
+        <StyledGridCell item sm={6} xs={12}>
           <Card>
             <CardContent>
-              <Typography
-                className={classes.titleText}
-                color="textSecondary"
-                gutterBottom
-              >
+              <Typography color="textSecondary" gutterBottom>
                 Currently staked{' '}
               </Typography>
               <Typography variant={'h4'}>
@@ -174,22 +173,20 @@ const Volatility = () => {
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} style={{ textAlign: 'center' }}>
+        </StyledGridCell>
+        <StyledGridCell item xs={12} style={{ textAlign: 'center' }}>
           <Typography variant={'h5'}>Withdraws</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Card>
-          </Card>
-        </Grid>
-        <Grid item xs={12} style={{ textAlign: 'center' }}>
+        </StyledGridCell>
+        <StyledGridCell item xs={12}>
+          <Card></Card>
+        </StyledGridCell>
+        <StyledGridCell item xs={12} style={{ textAlign: 'center' }}>
           <Typography variant={'h5'}>Voting</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Card>
-          </Card>
-        </Grid>
-      </Grid>
+        </StyledGridCell>
+        <StyledGridCell item xs={12}>
+          <Card></Card>
+        </StyledGridCell>
+      
       {/*<Hidden mdUp>*/}
       {/*  <APY />*/}
       {/*  <Help />*/}

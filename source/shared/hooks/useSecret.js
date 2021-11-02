@@ -1,7 +1,7 @@
 import { useEffect, useState, createContext, useContext } from 'react';
 import { getFromLS, setToLS } from '../utils/storage';
 import { SigningCosmWasmClient } from 'secretjs';
-import { getViewingKey, Snip20GetBalance } from '../snip20';
+import { getViewingKey, Snip20GetBalance } from '../Network/snip20';
 import {
     deposit,
     executeVote,
@@ -11,7 +11,7 @@ import {
     queryProposal,
     viewVote,
     withdraw,
-} from '../cash';
+} from '../Network/cash';
 import { stakingContract, tokenContract, votingContract } from '../utils/consts';
 
 export const stakeSCRT = async (secretjs, amountScrt) => {
