@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tgrecojs/Fli-Calculator.git"
+    "url": "git+https://github.com/tgrecojs/dScrt-nextjs.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["SCRT Network", "ScrtStaking"],
+  "author": "Thomas Greco",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tgrecojs/dScrt-nextjs/issues"
