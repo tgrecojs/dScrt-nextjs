@@ -1,7 +1,7 @@
 {
-  "name": "fli-calculator",
+  "name": "dSCRT-Staking-UI",
   "version": "1.0.0",
-  "description": "TO-Do",
+  "description": "Next.js application for SCRT network staking rewards",
   "main": "main.js",
   "scripts": {
     "dev": "next",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tgrecojs/Fli-Calculator/issues"
+    "url": "https://github.com/tgrecojs/dScrt-nextjs/issues"
   },
-  "homepage": "https://github.com/tgrecojs/Fli-Calculator#readme",
+  "homepage": "https://github.com/tgrecojs/dScrt-nextjs#readme",
   "dependencies": {
     "@emotion/cache": "^11.5.0",
     "@emotion/react": "^11.5.0",
